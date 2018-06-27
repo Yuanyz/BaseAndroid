@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mainColor">#303F9F</color>
+    <color name="background_color">#f0f0f0</color>
+    <color name="lineColor">#f0f0f0</color>
+    <!--标题颜色-->
+    <color name="titleBg">#ffffff</color>
+
+</resources>

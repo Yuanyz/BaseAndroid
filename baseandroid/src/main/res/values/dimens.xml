@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="lineHeight">2dp</dimen>
+    <!--标题尺寸-->
+    <dimen name="titleHeight">45dp</dimen>
+    <dimen name="titleTextSize">17sp</dimen>
+
+</resources>

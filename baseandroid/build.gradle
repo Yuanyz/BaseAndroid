@@ -45,4 +45,6 @@ dependencies {
     api 'com.squareup.okhttp3:okhttp:3.10.0'
     //二维码扫描
     api 'cn.bingoogolapple:bga-qrcode-zxing:1.2.1'
+    //EventBus
+    api 'org.greenrobot:eventbus:3.1.1'
 }

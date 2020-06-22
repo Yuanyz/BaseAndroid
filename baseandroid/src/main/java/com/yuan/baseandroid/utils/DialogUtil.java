@@ -11,41 +11,47 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.yuan.baseandroid.R;
-import com.yuan.baseandroid.widget.CustomDialog;
+import com.yuanyz.wheelshop.R;
+import com.yuanyz.wheelshop.widget.CustomDialog;
+
 
 public class DialogUtil {
+
+    public interface OnDialogClick {
+        void onClickLeft(DialogInterface dialog);
+
+        void onClickRight(DialogInterface dialog);
+    }
 
     /**
      * 展示选择弹框
      *
-     * @param title           标题
-     * @param message         内容
-     * @param leftStr 左侧按钮文字
-     * @param rightStr 右侧按钮文字
-     * @param onClickListener 确定按钮点击事件
+     * @param title         标题
+     * @param message       内容
+     * @param leftStr       左侧按钮文字
+     * @param rightStr      右侧按钮文字
+     * @param onDialogClick 按钮点击事件
      */
     public static void showChooseDialog(Context context, String title,
-                                        String message,String leftStr,String rightStr, final DialogInterface.OnClickListener onClickListener) {
+                                        String message, String leftStr, String rightStr, final OnDialogClick onDialogClick) {
         CustomDialog.Builder customBuilder = new CustomDialog.Builder(context);
         if (null == title || "".equals(title)) {
-            title = "温馨提示";
+            title = context.getString(R.string.dialog_title_submit);
         }
         customBuilder.setTitle(title);
         customBuilder.setMessage(message);
         customBuilder
-                .setPositiveButton(null == leftStr?"取消":leftStr, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
+                .setLeftButton(null == leftStr ? context.getString(R.string.ok) : leftStr, (dialog, which) -> {
+                    dialog.dismiss();
+                    if (null != onDialogClick) {
+                        onDialogClick.onClickLeft(dialog);
                     }
                 });
         customBuilder
-                .setNegativeButton(null == rightStr?"确定":rightStr, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        if (null != onClickListener) {
-                            onClickListener.onClick(dialog, which);
-                        }
+                .setRightButton(null == rightStr ? context.getString(R.string.cancel) : rightStr, (dialog, which) -> {
+                    dialog.dismiss();
+                    if (null != onDialogClick) {
+                        onDialogClick.onClickRight(dialog);
                     }
                 });
         customBuilder.create().show();
@@ -62,22 +68,18 @@ public class DialogUtil {
     public static void showInfoDialog(Context context, String title,
                                       String message, String btnStr, final DialogInterface.OnClickListener onClickListener) {
         CustomDialog.Builder customBuilder = new CustomDialog.Builder(context);
-        if (null == title || "".equals(title)) {
-            title = "温馨提示";
+        if (null != title && !"".equals(title)) {
+            customBuilder.setTitle(title);
         }
         if (null == btnStr || "".equals(btnStr)) {
-            btnStr = "确定";
+            btnStr = context.getString(R.string.ok);
         }
-        customBuilder.setTitle(title);
         customBuilder.setMessage(message);
-
         customBuilder
-                .setPositiveButton(btnStr, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        if (null != onClickListener) {
-                            onClickListener.onClick(dialog, which);
-                        }
+                .setLeftButton(btnStr, (dialog, which) -> {
+                    dialog.dismiss();
+                    if (null != onClickListener) {
+                        onClickListener.onClick(dialog, which);
                     }
                 });
         customBuilder.create().show();
@@ -90,7 +92,7 @@ public class DialogUtil {
      * @param msg     展示文字
      * @return dialog实例
      */
-    public static Dialog createLoadingDialog(Context context, String msg,boolean isCancel) {
+    public static Dialog createLoadingDialog(Context context, String msg, boolean isCancel) {
 
         LayoutInflater inflater = LayoutInflater.from(context);
         View v = inflater.inflate(R.layout.dialog_loading, null);// 得到加载view
@@ -106,7 +108,7 @@ public class DialogUtil {
             tipTextView.setText(msg);// 设置加载信息
         }
         Dialog loadingDialog = new Dialog(context, R.style.loading_dialog);// 创建自定义样式dialog
-        if (CommonUtil.isNetworkAvailable(context) == 0) {
+        if (NetworkUtil.isNetworkAvailable(context) == 0) {
             loadingDialog.setCancelable(true);
         } else {
             loadingDialog.setCancelable(isCancel);

@@ -3,32 +3,24 @@
     android:id="@+id/dialog_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#4Dffffff"
+    android:background="@drawable/round_corner_bg_white"
     android:gravity="center"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/iv_dialog"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/progress_dialog_layer_list" />
+
+    <TextView
+        android:id="@+id/tv_dialog"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="20dp">
-
-        <ImageView
-            android:id="@+id/iv_dialog"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/dialog_progress" />
-
-        <TextView
-            android:id="@+id/tv_dialog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="5dp"
-            android:text="正在加载..."
-            android:textColor="@color/mainColor" />
-    </LinearLayout>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:text="Loading..."
+        android:textColor="@color/titleBg" />
 
 </LinearLayout>

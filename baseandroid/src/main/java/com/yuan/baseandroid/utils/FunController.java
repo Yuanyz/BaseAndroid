@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 
 import com.yuan.baseandroid.BaseActivity;
 import com.yuan.baseandroid.http.MyHttpRequestVo;
-import com.yuan.baseandroid.http.OkHttpClientManager;
 
 public class FunController {
     private static FunController controller = null;

@@ -15,7 +15,8 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <TextView
                 android:id="@id/title"
@@ -26,9 +27,8 @@
                 android:layout_marginTop="20dp"
                 android:paddingLeft="8dip"
                 android:paddingRight="8dip"
-                android:textColor="@color/mainColor" />
+                android:textColor="@color/colorThree" />
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/content"
@@ -51,7 +51,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="10dp"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical"/>
 
         <include layout="@layout/layout_line" />
 
@@ -65,7 +65,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/positiveButton"
+                    android:id="@+id/leftButton"
                     android:layout_width="0dip"
                     android:layout_height="45dp"
                     android:layout_marginTop="3dip"
@@ -73,12 +73,11 @@
                     android:background="#00000000"
                     android:gravity="center"
                     android:singleLine="true"
-                    android:textColor="@drawable/dialog_text_color"
-
+                    android:textColor="@color/msgGray"
                     android:textSize="14sp" />
 
                 <Button
-                    android:id="@+id/negativeButton"
+                    android:id="@+id/rightButton"
                     android:layout_width="0dip"
                     android:layout_height="45dp"
                     android:layout_marginTop="3dip"
@@ -86,8 +85,9 @@
                     android:background="#00000000"
                     android:gravity="center"
                     android:singleLine="true"
-                    android:textColor="@drawable/dialog_text_color"
+                    android:textColor="@color/msgGray"
                     android:textSize="14sp" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -97,7 +97,7 @@
                 android:layout_centerHorizontal="true"
                 android:background="#dbdbdb"
                 android:orientation="vertical"
-                android:visibility="gone"></LinearLayout>
+                android:visibility="gone"/>
         </RelativeLayout>
     </LinearLayout>
 

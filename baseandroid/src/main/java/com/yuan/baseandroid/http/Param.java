@@ -9,7 +9,7 @@ public class Param {
         this.key = key;
         this.value = value;
     }
-
+    public String type;
     public String key;
     public String value;
 

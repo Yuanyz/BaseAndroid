@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/re_title"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/titleBg">
 
     <RelativeLayout
-        android:id="@+id/re_title"
-        style="@style/Title_Style"
+        android:id="@+id/re_title_top"
         android:layout_width="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-        <LinearLayout
-            android:id="@+id/ll_title_left"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+        <RelativeLayout
+            android:id="@+id/re_title_left"
+            android:layout_width="70dp"
+            android:layout_height="45dp"
             android:layout_alignParentLeft="true"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:layout_marginRight="20dp">
 
             <ImageView
                 android:id="@+id/title_left_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
                 android:background="@drawable/ic_black_back"
                 android:scaleType="fitXY" />
 
@@ -29,51 +33,59 @@
                 android:id="@+id/tv_title_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
                 android:maxLines="1"
+                android:paddingLeft="5dp"
                 android:text=""
-                android:textSize="15sp"
+                android:textColor="@color/titleTextColor"
+                android:textSize="16sp"
                 android:visibility="gone" />
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/ll_title_right"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+        <RelativeLayout
+            android:id="@+id/re_title_right"
+            android:layout_width="70dp"
+            android:layout_height="45dp"
             android:layout_alignParentRight="true"
-            android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:layout_marginLeft="20dp">
 
             <ImageView
                 android:id="@+id/title_right_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:visibility="visible" />
+                android:layout_centerInParent="true"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tv_title_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_centerInParent="true"
                 android:layout_marginLeft="3dp"
                 android:maxLines="1"
                 android:text=""
-                android:textSize="15sp"
+                android:textColor="@color/titleTextColor"
+                android:textSize="14sp"
                 android:visibility="invisible" />
-        </LinearLayout>
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tv_title"
-            style="@style/Title_TextSize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_toLeftOf="@id/ll_title_right"
-            android:layout_toRightOf="@id/ll_title_left"
-            android:ellipsize="middle"
+            android:layout_toLeftOf="@id/re_title_right"
+            android:layout_toRightOf="@id/re_title_left"
             android:gravity="center"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:textColor="@color/titleTextColor"
+            android:textSize="17sp" />
     </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/re_title_top"
+            android:background="@color/lineColor" />
+
 </RelativeLayout>

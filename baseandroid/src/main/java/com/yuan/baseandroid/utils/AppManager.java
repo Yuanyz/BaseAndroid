@@ -27,6 +27,10 @@ public class AppManager {
         return instance;
     }
 
+    public static Activity getActivity() {
+        return AppManager.getAppManager().getTop();
+    }
+
     /**
      * 添加Activity到堆栈
      */
@@ -53,6 +57,10 @@ public class AppManager {
             Activity activity = activityStack.lastElement();
             finishActivity(activity);
         }
+    }
+
+    public Activity getTop(){
+        return activityStack.lastElement();
     }
 
     /**
@@ -90,6 +98,7 @@ public class AppManager {
     }
 
 
+
     public Boolean isContainActivity(Class<?> cls) {
         Boolean flag = false;
         for (Activity activity : activityStack) {
@@ -120,12 +129,11 @@ public class AppManager {
      * @param context
      * @return
      */
-    public static int[] getScreenDispaly(Context context) {
+    public static int[] getScreenDisplay(Context context) {
         WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         int width = windowManager.getDefaultDisplay().getWidth();// 手机屏幕的宽度
         int height = windowManager.getDefaultDisplay().getHeight();// 手机屏幕的高度
-        int result[] = {width, height};
-        return result;
+        return new int[]{width, height};
     }
 
     /**
@@ -141,9 +149,6 @@ public class AppManager {
         if (appTask == null) {
             return false;
         }
-
         return appTask.get(0).baseIntent.toString().contains(packageName);
     }
-
-
 }

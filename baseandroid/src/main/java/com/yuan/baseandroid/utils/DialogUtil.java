@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.yuanyz.wheelshop.R;
-import com.yuanyz.wheelshop.widget.CustomDialog;
+import com.yuan.baseandroid.R;
+import com.yuan.baseandroid.widget.CustomDialog;
 
 
 public class DialogUtil {

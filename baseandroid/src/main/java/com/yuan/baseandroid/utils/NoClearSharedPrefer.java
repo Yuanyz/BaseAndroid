@@ -3,7 +3,8 @@ package com.yuan.baseandroid.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.yuanyz.wheelshop.macro.SPMacro;
+import com.yuan.baseandroid.macro.SPMacro;
+
 
 /**
  * SharedPreferences存储退出登录不清除的数据

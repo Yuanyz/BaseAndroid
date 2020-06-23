@@ -2,8 +2,21 @@
 <resources>
     <color name="mainColor">#303F9F</color>
     <color name="background_color">#f0f0f0</color>
-    <color name="lineColor">#f0f0f0</color>
     <!--标题颜色-->
-    <color name="titleBg">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
 
+    <color name="titleBg">#006cff</color>
+    <color name="titleTextColor">#333333</color>
+    <color name="mainBg">#f6f6f6</color>
+    <color name="backgroundGray">#bb888888</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="lineColor">#dbdbdb</color>
+    <color name="colorThree">#333333</color>
+    <color name="colorSix">#666666</color>
+    <color name="colorNine">#999999</color>
+    <color name="msgGray">#505050</color>
+    <color name="colorC">#cccccc</color>
+    <color name="colorESix">#e6e6e6</color>
 </resources>

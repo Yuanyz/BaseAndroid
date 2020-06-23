@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">baseandroid</string>
+
+    <string name="dialog_title_submit">提示</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="bim_app_exit">再按一次返回键关闭程序</string>
 </resources>

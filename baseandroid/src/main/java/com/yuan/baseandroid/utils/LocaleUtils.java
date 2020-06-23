@@ -7,7 +7,7 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.os.LocaleList;
 
-import com.yuanyz.wheelshop.macro.SPMacro;
+import com.yuan.baseandroid.macro.SPMacro;
 
 import java.util.Locale;
 

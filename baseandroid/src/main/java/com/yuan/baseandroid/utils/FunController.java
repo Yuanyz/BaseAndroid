@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 
 import com.yuan.baseandroid.BaseActivity;
 import com.yuan.baseandroid.http.MyHttpRequestVo;
+import com.yuan.baseandroid.http.OkHttpManager;
 
 public class FunController {
     private static FunController controller = null;
@@ -105,53 +106,6 @@ public class FunController {
         preferences.edit().clear().apply();
     }
 
-    /***
-     * 获取网络数据
-     *
-     * @param methodType 请求方式
-     * @param vo         请求参数
-     * @param callback   数据回调
-     */
-
-    public void getDataFromServer(int methodType, MyHttpRequestVo vo,
-                                   OkHttpClientManager.ResultCallback callback) {
-        OkHttpClientManager.getInstance(activity).sendRequest(methodType, vo, callback,
-                new OkHttpClientManager.RequestListener() {
-
-                    @Override
-                    public void onNetWorkNotAccess() {
-//                        noNetConnection();
-                    }
-
-                    @Override
-                    public void onFailure() {
-                    }
-                }, activity.getApplicationContext());
-    }
-
-    /**
-     * 展示选择弹框
-     *
-     * @param title           标题
-     * @param message         内容
-     * @param onClickListener 确定按钮点击事件
-     */
-    public void showChooseDialog(String title, String message, DialogInterface.OnClickListener onClickListener) {
-        DialogUtil.showChooseDialog(activity, title, message, "取消", "确定", onClickListener);
-    }
-
-    /**
-     * 展示选择弹框
-     *
-     * @param title           标题
-     * @param message         内容
-     * @param cancel          取消文字
-     * @param enter           确定文字
-     * @param onClickListener 确定按钮点击事件
-     */
-    public void showChooseDialog(String title, String message, String cancel, String enter, DialogInterface.OnClickListener onClickListener) {
-        DialogUtil.showChooseDialog(activity, title, message, cancel, enter, onClickListener);
-    }
 
     /**
      * 展示提示弹框
